@@ -6,7 +6,8 @@
 </template>
 
 <script>
-import Tabber from "@/components/Tabber.vue";
+import Tabber from '@/components/Tabber.vue';
+
 export default {
   components: {
     Tabber,

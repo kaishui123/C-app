@@ -1,4 +1,4 @@
-/* eslint-disable no-param-resassign*/
+/* eslint-disable no-param-reassign */
 function moveTo(start, end, dom, prop) {
   let dis = 0;
   let speed = 5;
@@ -16,5 +16,5 @@ function moveTo(start, end, dom, prop) {
 }
 
 export default {
-  moveTo
+  moveTo,
 };

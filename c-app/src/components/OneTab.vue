@@ -18,8 +18,9 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
-import tool from "@/utils/tool";
+import { mapActions } from 'vuex';
+import tool from '@/utils/tool';
+
 export default {
   data() {
     return {
@@ -27,115 +28,115 @@ export default {
       index: 0,
       menuList: [
         {
-          title: "时令水果",
+          title: '时令水果',
           imgURL:
-            "https://duyi-bucket.oss-cn-beijing.aliyuncs.com/img/时令水果.jpg",
+            'https://duyi-bucket.oss-cn-beijing.aliyuncs.com/img/时令水果.jpg',
         },
         {
-          title: "酒水冲调",
+          title: '酒水冲调',
           imgURL:
-            "https://duyi-bucket.oss-cn-beijing.aliyuncs.com/img/酒水冲调.jpg",
+            'https://duyi-bucket.oss-cn-beijing.aliyuncs.com/img/酒水冲调.jpg',
         },
         {
-          title: "安心乳品",
+          title: '安心乳品',
           imgURL:
-            "https://duyi-bucket.oss-cn-beijing.aliyuncs.com/img/安心乳品.jpg",
+            'https://duyi-bucket.oss-cn-beijing.aliyuncs.com/img/安心乳品.jpg',
         },
         {
-          title: "休闲零食",
+          title: '休闲零食',
           imgURL:
-            "https://duyi-bucket.oss-cn-beijing.aliyuncs.com/img/休闲零食.jpg",
+            'https://duyi-bucket.oss-cn-beijing.aliyuncs.com/img/休闲零食.jpg',
         },
         {
-          title: "肉蛋食材",
+          title: '肉蛋食材',
           imgURL:
-            "https://duyi-bucket.oss-cn-beijing.aliyuncs.com/img/肉蛋食材.jpg",
+            'https://duyi-bucket.oss-cn-beijing.aliyuncs.com/img/肉蛋食材.jpg',
         },
         {
-          title: "新鲜蔬菜",
+          title: '新鲜蔬菜',
           imgURL:
-            "https://duyi-bucket.oss-cn-beijing.aliyuncs.com/img/新鲜食材.jpg",
+            'https://duyi-bucket.oss-cn-beijing.aliyuncs.com/img/新鲜食材.jpg',
         },
         {
-          title: "熟食餐饮",
+          title: '熟食餐饮',
           imgURL:
-            "https://duyi-bucket.oss-cn-beijing.aliyuncs.com/img/熟食餐饮.jpg",
+            'https://duyi-bucket.oss-cn-beijing.aliyuncs.com/img/熟食餐饮.jpg',
         },
         {
-          title: "海鲜水产",
+          title: '海鲜水产',
           imgURL:
-            "https://duyi-bucket.oss-cn-beijing.aliyuncs.com/img/海鲜水产.jpg",
+            'https://duyi-bucket.oss-cn-beijing.aliyuncs.com/img/海鲜水产.jpg',
         },
         {
-          title: "粮油调味",
+          title: '粮油调味',
           imgURL:
-            "https://duyi-bucket.oss-cn-beijing.aliyuncs.com/img/粮油调味.jpg",
+            'https://duyi-bucket.oss-cn-beijing.aliyuncs.com/img/粮油调味.jpg',
         },
         {
-          title: "某手美食",
+          title: '某手美食',
           imgURL:
-            "https://duyi-bucket.oss-cn-beijing.aliyuncs.com/img/某手美食.jpg",
+            'https://duyi-bucket.oss-cn-beijing.aliyuncs.com/img/某手美食.jpg',
         },
         {
-          title: "纸杯清洁",
+          title: '纸杯清洁',
           imgURL:
-            "https://duyi-bucket.oss-cn-beijing.aliyuncs.com/img/纸品清洁.jpg",
+            'https://duyi-bucket.oss-cn-beijing.aliyuncs.com/img/纸品清洁.jpg',
         },
         {
-          title: "个人护理",
+          title: '个人护理',
           imgURL:
-            "https://duyi-bucket.oss-cn-beijing.aliyuncs.com/img/个人护理.jpg",
+            'https://duyi-bucket.oss-cn-beijing.aliyuncs.com/img/个人护理.jpg',
         },
         {
-          title: "美妆护肤",
+          title: '美妆护肤',
           imgURL:
-            "https://duyi-bucket.oss-cn-beijing.aliyuncs.com/img/美妆护肤.jpg",
+            'https://duyi-bucket.oss-cn-beijing.aliyuncs.com/img/美妆护肤.jpg',
         },
         {
-          title: "家居收纳",
+          title: '家居收纳',
           imgURL:
-            "https://duyi-bucket.oss-cn-beijing.aliyuncs.com/img/家居收纳.jpg",
+            'https://duyi-bucket.oss-cn-beijing.aliyuncs.com/img/家居收纳.jpg',
         },
         {
-          title: "家用电器",
+          title: '家用电器',
           imgURL:
-            "https://duyi-bucket.oss-cn-beijing.aliyuncs.com/img/家用电器.jpg",
+            'https://duyi-bucket.oss-cn-beijing.aliyuncs.com/img/家用电器.jpg',
         },
         {
-          title: "3C数码",
+          title: '3C数码',
           imgURL:
-            "https://duyi-bucket.oss-cn-beijing.aliyuncs.com/img/3C数码.jpg",
+            'https://duyi-bucket.oss-cn-beijing.aliyuncs.com/img/3C数码.jpg',
         },
         {
-          title: "母婴用品",
+          title: '母婴用品',
           imgURL:
-            "https://duyi-bucket.oss-cn-beijing.aliyuncs.com/img/母婴用品.jpg",
+            'https://duyi-bucket.oss-cn-beijing.aliyuncs.com/img/母婴用品.jpg',
         },
         {
-          title: "鲜花绿植",
+          title: '鲜花绿植',
           imgURL:
-            "https://duyi-bucket.oss-cn-beijing.aliyuncs.com/img/鲜花绿植.jpg",
+            'https://duyi-bucket.oss-cn-beijing.aliyuncs.com/img/鲜花绿植.jpg',
         },
         {
-          title: "宠物用品",
+          title: '宠物用品',
           imgURL:
-            "https://duyi-bucket.oss-cn-beijing.aliyuncs.com/img/宠物用品.jpg",
+            'https://duyi-bucket.oss-cn-beijing.aliyuncs.com/img/宠物用品.jpg',
         },
         {
-          title: "图书玩具",
+          title: '图书玩具',
           imgURL:
-            "https://duyi-bucket.oss-cn-beijing.aliyuncs.com/img/图书文具.jpg",
+            'https://duyi-bucket.oss-cn-beijing.aliyuncs.com/img/图书文具.jpg',
         },
         {
-          title: "手表配饰",
+          title: '手表配饰',
           imgURL:
-            "https://duyi-bucket.oss-cn-beijing.aliyuncs.com/img/手表配饰.jpg",
+            'https://duyi-bucket.oss-cn-beijing.aliyuncs.com/img/手表配饰.jpg',
         },
       ],
     };
   },
   methods: {
-    ...mapActions(["getSideList"]),
+    ...mapActions(['getSideList']),
     scrollTo(i, e) {
       if (this.move) {
         return;
@@ -150,7 +151,7 @@ export default {
         oneTab.scrollLeft,
         itemWidth / 2 + itemLeft - wrapperWidth / 2,
         oneTab,
-        "scrollLeft"
+        'scrollLeft',
       );
       // 获取侧边栏数据 （ sidbar + data ）
       this.getSideList(this.menuList[i].title);
