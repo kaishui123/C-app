@@ -5,14 +5,17 @@
       <div>苹果特价1元一斤</div>
     </div>
     <OneTab />
+    <SideBar />
   </div>
 </template>
 
 <script>
 import OneTab from "@/components/OneTab.vue";
+import SideBar from "@/components/SideBar.vue";
 export default {
   components: {
     OneTab,
+    SideBar,
   },
 };
 </script>
