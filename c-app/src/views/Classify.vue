@@ -14,10 +14,10 @@
 </template>
 
 <script>
-import OneTab from "@/components/OneTab.vue";
-import SideBar from "@/components/SideBar.vue";
-import GoodsList from "@/components/GoodsList.vue";
-import { mapState } from "vuex";
+import OneTab from '@/components/OneTab.vue';
+import SideBar from '@/components/SideBar.vue';
+import GoodsList from '@/components/GoodsList.vue';
+import { mapState } from 'vuex';
 
 export default {
   computed: {

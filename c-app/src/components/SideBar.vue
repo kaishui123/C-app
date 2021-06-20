@@ -14,8 +14,8 @@
 </template>
 
 <script>
-import { mapActions, mapMutations, mapState } from "vuex";
-import tool from "@/utils/tool";
+import { mapActions, mapMutations, mapState } from 'vuex';
+import tool from '@/utils/tool';
 
 export default {
   data() {
@@ -29,8 +29,8 @@ export default {
     }),
   },
   methods: {
-    ...mapMutations(["resetGoodsList"]),
-    ...mapActions(["getGoodsList"]),
+    ...mapMutations(['resetGoodsList']),
+    ...mapActions(['getGoodsList']),
     scrollTo(i, e) {
       if (this.move) {
         return;
@@ -45,20 +45,20 @@ export default {
         side.scrollTop,
         sonTop + sonHeight / 2 - pTop - pHeight / 2,
         side,
-        "scrollTop"
+        'scrollTop',
       );
       // 获取列表页操作
       this.resetGoodsList();
       this.getGoodsList({
         type: this.sideList[i],
         page: 1,
-        sortType: "all",
+        sortType: 'all',
       });
     },
   },
   mounted() {
     this.resetGoodsList();
-    this.getGoodsList({ type: this.sideList[0], page: 1, sortType: "all" });
+    this.getGoodsList({ type: this.sideList[0], page: 1, sortType: 'all' });
   },
 };
 </script>

@@ -27,7 +27,12 @@
           @load="onLoad"
           :immediate-check="false"
         >
-          <GoodsCard v-for="item in goodsList" :key="item.id" v-bind="item" />
+          <GoodsCard
+            v-for="item in goodsList"
+            :key="item.id"
+            v-bind="item"
+            :num="counterMap[item.id]"
+          />
         </van-list>
       </van-pull-refresh>
     </div>
@@ -35,12 +40,13 @@
 </template>
 
 <script>
-import { mapActions, mapMutations, mapState } from "vuex";
-import GoodsCard from "./GoodsCard.vue";
+import { mapActions, mapMutations, mapState } from 'vuex';
+import GoodsCard from './GoodsCard.vue';
+
 export default {
   data() {
     return {
-      type: "all",
+      type: 'all',
       isLoading: false,
       loading: false,
       finished: false,
@@ -52,11 +58,12 @@ export default {
   computed: {
     ...mapState({
       goodsList: (state) => state.goodsList,
+      counterMap: (state) => state.counterMap,
     }),
   },
   methods: {
-    ...mapMutations(["resetGoodsList"]),
-    ...mapActions(["getGoodsList"]),
+    ...mapMutations(['resetGoodsList']),
+    ...mapActions(['getGoodsList']),
     onRefresh() {
       this.isLoading = true;
       this.finished = false;
@@ -80,17 +87,16 @@ export default {
       }
     },
     changeType(type) {
-      if (type === "all") {
-        this.type = "all";
-      } else if (type === "sale") {
-        this.type = "sale";
+      if (type === 'all') {
+        this.type = 'all';
+      } else if (type === 'sale') {
+        this.type = 'sale';
+      } else if (this.type === 'price-up') {
+        this.type = 'price-down';
       } else {
-        if (this.type === "price-up") {
-          this.type = "price-down";
-        } else {
-          this.type = "price-up";
-        }
+        this.type = 'price-up';
       }
+      this.onRefresh();
     },
   },
 };
