@@ -6,7 +6,12 @@
     <van-tabbar-item icon="apps-o" :to="{ name: 'classify' }">
       分类
     </van-tabbar-item>
-    <van-tabbar-item icon="cart-o" :to="{ name: 'shopping' }" :badge="badge">
+    <van-tabbar-item
+      id="shop-car"
+      icon="cart-o"
+      :to="{ name: 'shopping' }"
+      :badge="badge"
+    >
       购物车
     </van-tabbar-item>
     <van-tabbar-item icon="user-o" to="/my"> 我的 </van-tabbar-item>
