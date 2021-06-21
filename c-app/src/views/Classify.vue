@@ -1,9 +1,9 @@
 <template>
   <div class="classify-container">
-    <div class="search-btn">
+    <RouterLink class="search-btn" tag="div" :to="{ name: 'search' }">
       <van-icon name="search" />
       <div>苹果特价1元一斤</div>
-    </div>
+    </RouterLink>
     <OneTab />
     <template v-if="showContent">
       <SideBar />
