@@ -44,6 +44,9 @@ import { mapActions, mapMutations, mapState } from 'vuex';
 import GoodsCard from './GoodsCard.vue';
 
 export default {
+  created() {
+    localStorage.setItem('searchList', JSON.stringify([]));
+  },
   data() {
     return {
       type: 'all',

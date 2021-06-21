@@ -1,7 +1,7 @@
 <template>
   <div class="search-container">
     <div class="search-head">
-      <van-icon name="arrow-left" class="arr-left" />
+      <van-icon @click="$router.goBack()" name="arrow-left" class="arr-left" />
       <van-search
         class="search-content"
         v-model="value"
@@ -42,12 +42,15 @@
         :immediate-check="false"
       >
         <GoodsCard
-          v-for="item in goodsList"
-          :key="item.id"
+          v-for="(item, i) in goodsList"
+          :key="i"
           v-bind="item"
           :num="counterMap[item.id]"
         />
       </van-list>
+    </div>
+    <div class="my-history" v-if="likeList.length <= 0 && showList">
+      <MyHistory :searchList="searchList" @search="onSearch"></MyHistory>
     </div>
   </div>
 </template>
@@ -55,10 +58,12 @@
 <script>
 import GoodsCard from '@/components/GoodsCard.vue';
 import { mapState } from 'vuex';
+import MyHistory from '@/components/MyHistory.vue';
 
 export default {
   components: {
     GoodsCard,
+    MyHistory,
   },
   data() {
     return {
@@ -73,6 +78,7 @@ export default {
       goodsList: [],
       showList: true,
       total: 0,
+      searchList: [],
     };
   },
   computed: {
@@ -103,12 +109,26 @@ export default {
         this.page += 1;
       }
     },
-    onSearch(value) {
+    async onSearch(value) {
       if (value) {
         this.value = value;
       } else {
         this.value = this.place;
       }
+      const result = this.searchList.find((item) => item.value === this.value);
+      if (result) {
+        result.time = new Date().getTime();
+        this.searchList.sort((a, b) => b.time - a.time);
+      } else {
+        this.searchList.unshift({
+          value: this.value,
+          time: new Date().getTime(),
+        });
+        if (this.searchList.length >= 11) {
+          this.searchList.pop();
+        }
+      }
+      localStorage.setItem('searchList', JSON.stringify(this.searchList));
       this.likeList = [];
       this.goodsList = [];
       this.page = 1;
@@ -141,6 +161,9 @@ export default {
       const reg = new RegExp(this.value, 'g');
       return item.replace(reg, this.value.fontcolor('red'));
     },
+  },
+  created() {
+    this.searchList = JSON.parse(localStorage.getItem('searchList')) || [];
   },
 };
 </script>
@@ -184,6 +207,13 @@ export default {
     margin: 48px auto 0;
     z-index: 10;
     background: #fff;
+  }
+  .my-history {
+    width: 350px;
+    position: absolute;
+    top: 35px;
+    left: 10px;
+    z-index: 1;
   }
 }
 </style>

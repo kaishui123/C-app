@@ -17,18 +17,31 @@
 import OneTab from '@/components/OneTab.vue';
 import SideBar from '@/components/SideBar.vue';
 import GoodsList from '@/components/GoodsList.vue';
-import { mapState } from 'vuex';
+import { mapActions, mapMutations, mapState } from 'vuex';
 
 export default {
   computed: {
     ...mapState({
       showContent: (state) => state.showContent,
+      sideList: (state) => state.sideList,
     }),
   },
   components: {
     OneTab,
     SideBar,
     GoodsList,
+  },
+  methods: {
+    ...mapMutations(['resetGoodsList']),
+    ...mapActions(['getGoodsList']),
+  },
+  watch: {
+    showContent() {
+      if (this.showContent) {
+        this.resetGoodsList();
+        this.getGoodsList({ type: this.sideList[0], page: 1, sortType: 'all' });
+      }
+    },
   },
 };
 </script>
