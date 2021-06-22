@@ -4,8 +4,8 @@
       :name="transitionName"
       :mode="this.$router.back ? 'out-in' : 'in-out'"
     >
-      <RouterView class="view"
-    /></transition>
+      <RouterView class="view" />
+    </transition>
   </div>
 </template>
 <script>

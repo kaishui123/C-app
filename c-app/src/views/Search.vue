@@ -20,6 +20,7 @@
             name="cart-o"
             class="shop-car"
             :badge="badge"
+            @click="$router.push({ name: 'shopping' })"
           ></van-icon>
         </template>
       </van-search>
@@ -99,7 +100,6 @@ export default {
   methods: {
     async onLoad() {
       const value = await this.$api.search(this.value, this.page, this.size);
-      console.log(value);
       this.goodsList = [...this.goodsList, ...value.list];
       this.total = value.total;
       this.loading = false;
